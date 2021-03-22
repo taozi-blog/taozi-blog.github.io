@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>linux笔记 - taozi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="关机前先把数据同步到硬盘硬盘：sync
+关机命令：shutdown
+linux中没报错就是成功
+重启：reboot
+
+一切皆文件
+
+根目录/ ，所有文件都挂载在这个节点下
+
+登录系统后，在当前命令窗,"> 
+    <meta name="author" content="taozi"> 
+    <link rel="alternative" href="atom.xml" title="taozi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">taozi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">linux笔记</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">linux笔记</h1>
+        <div class="stuff">
+            <span>一月 31, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>关机前先把数据同步到硬盘硬盘：sync</p>
+<p>关机命令：shutdown</p>
+<p>linux中没报错就是成功</p>
+<p>重启：reboot</p>
+<ol>
+<li><p>一切皆文件</p>
+</li>
+<li><p>根目录/ ，所有文件都挂载在这个节点下</p>
+</li>
+<li><p>登录系统后，在当前命令窗口输入命令：</p>
+</li>
+</ol>
+<p>ls /</p>
+<p>​    <strong>/etc : 这个目录用来存放所有系统管理所需配置文件和子目录</strong></p>
+<p>​    <strong>/home : 用户的主目录，在linux中，每个用户都有一个自己的目录，一般该目录是以用户账号命名的。</strong></p>
+<p>​    <strong>/opt : 这是给主机额外安装软件所摆放的目录。比如你安装一个oracle数据库则就可以放到这个目录下。默认是空的</strong></p>
+<p><strong>/root :该目录为系统管理员，也称作超级权限这用户主目录</strong></p>
+<p><strong>/usr : 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program目录。</strong></p>
+<p><strong>/tmp : 这个目录是用来存放一些临时文件的，用完即丢的文件，可以在这个目录下安装包</strong></p>
+<p><strong>/var : 这个目录中存放着不断扩充的东西我们习惯将那些经常被修改的目录放在这个目录下包括各种日志文件</strong></p>
+<p><strong>/www :存放服务器网站相关的资源，环境，网站的项目</strong></p>
+<h3 id="目录相关命令"><a href="#目录相关命令" class="headerlink" title="目录相关命令"></a>目录相关命令</h3><h4 id="目录管理"><a href="#目录管理" class="headerlink" title="目录管理"></a>目录管理</h4><blockquote>
+<p>绝对路径、相对路径</p>
+</blockquote>
+<p>绝对路径是路径的全称：C:\ProgramData\360safe\xxx.xx</p>
+<p>cd  :切换目录目录</p>
+<p>./ ：当前目录</p>
+<p>返回上一级目录：cd ..</p>
+<blockquote>
+<p>ls （列出目录）</p>
+</blockquote>
+<p>-a参数：all，查看全部文件，包括隐蔽文件</p>
+<p>-l参数列出水银的文件，包含文件的属性和权限，没有隐蔽文件</p>
+<p>所有linux可以组合使用例如：ls -al</p>
+<blockquote>
+<p>cd命令切换目录</p>
+</blockquote>
+<p>cd 目录名（绝对路径都是以/开头，相对路径，对于当前目录该如何寻找../../）</p>
+<p>cd ~ ：回到当前的用户目录</p>
+<blockquote>
+<p>pwd 显示当前用户所在的目录</p>
+</blockquote>
+<blockquote>
+<p>mkdir 创建一个目录（文件夹）</p>
+</blockquote>
+<p>mkdir -p test2/test3/test4 :递归创建文件夹（创建多个层级文件夹）</p>
+<blockquote>
+<p>rmdir 删除文件夹</p>
+</blockquote>
+<p>rmdir 仅能删除空目录，如果下面存在文件，需先删除文件，递归删除多个目录-p参数即可</p>
+<blockquote>
+<p>cp(复制文件或者目录)</p>
+</blockquote>
+<p>cp 原来的地方 新的地方</p>
+<p>如果文件重复，就选择覆盖（y）或者放弃（n）</p>
+<blockquote>
+<p>rm (移除文件或者目录)</p>
+</blockquote>
+<p>-f 忽略不存在的文件，不会出现警告，强制删除</p>
+<p>-r 递归删除目录</p>
+<p>-i 互动，删除询问是否删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf / <span class="comment">#系统中所有文件就被删除了</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>mv 移动文件或者目录 重命名文件</p>
+</blockquote>
+<p>-f 强制</p>
+<p>-u 只替换已经更新过的文件</p>
+<h3 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h3><blockquote>
+<p>看懂文件属性</p>
+</blockquote>
+<p>“d”在linux中代表该文件是一个目录文件</p>
+<p>在linux中第一个字符代表这个文件是目录，文件或者链接文件等等：</p>
+<ul>
+<li>当为[d]则是目录</li>
+<li>当为[-]则是文件；</li>
+<li>若是[l]则表示为链接文档；</li>
+<li>若是[b]则表示为装置文件里面可供存储的接口社备（课随机存取装置）；</li>
+<li>若是[c]则表示为装置文件里面的串行端口社备，例如键盘，鼠标（一次性读取装置）</li>
+</ul>
+<p>接下来的字符中，以三个为一组，且均为【rwx】的三个参数的组合</p>
+<p>其中，[r]代表可读（read）[w]代表可写（write），[x]代表可执行（execute）</p>
+<p>要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现[-]而已</p>
+<p>没三个分别为属主权限    属组权限    其他用户权限</p>
+<blockquote>
+<p>修改文件属性</p>
+</blockquote>
+<h4 id="1-chgrp：更改文件属组"><a href="#1-chgrp：更改文件属组" class="headerlink" title="1. chgrp：更改文件属组"></a>1. chgrp：更改文件属组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp [-R] 属主名 文件名</span><br></pre></td></tr></table></figure>
+<p>-R：递归更改文件属组，就是在更改摸个目录文件的属组是，如果加上-R的参数，你们该目录下的所有文件的属组都会更改</p>
+<h4 id="2-chown：更改文件属主，也可以同时更改文件属组"><a href="#2-chown：更改文件属主，也可以同时更改文件属组" class="headerlink" title="2. chown：更改文件属主，也可以同时更改文件属组"></a>2. chown：更改文件属主，也可以同时更改文件属组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R]属主名 文件名</span><br><span class="line">chmod [-R]属主名：属组名 文件名</span><br></pre></td></tr></table></figure>
+<h4 id="3-chmod：更改文件9个属性"><a href="#3-chmod：更改文件9个属性" class="headerlink" title="3. chmod：更改文件9个属性"></a>3. chmod：更改文件9个属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br></pre></td></tr></table></figure>
+<p>linux文件属性有两种设置方法，一种是数字，一种是符号</p>
+<p>linux文件的基本权限就有9个，分别是owner/group/others三种身份各有自己的read/write/execute权限</p>
+<p>r：4        w:2        x:1</p>
+<p>可读可写不可执行        rw-        6</p>
+<p>可读可写可执行            rwx        7</p>
+<p>chomd    777        文件可读可写可执行</p>
+<h3 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h3><p>linux系统中使用以下命令来查看文件内容：</p>
+<ul>
+<li>cat由第一行开始显示文件内容，用来读文章，读配置文件</li>
+<li>tac从最后一行开始显示，可以看出tac是cat的倒写</li>
+<li>nl显示的时候，顺道输出行号</li>
+<li>more一页一页的显示文件内容（空格代表翻页，回车代表向下看一行）</li>
+<li>less与more类似，但是比more更好的是，他可以往前翻页（空格代表翻页，上下键代表翻动页面 q退出命令，<strong>查找字符串/要查找的字符（向下查询）向上查询用？要查找的字符串，n继续搜寻下一个，N上寻找</strong>）</li>
+<li>head只看头几行 通过-n参数来控制显示几行</li>
+<li>tail只看尾巴几行</li>
+</ul>
+<p>你可以使用man[命令]来查看各个命令的使用文档，如：man cp</p>
+<p>ifconfig命令查看网络配置</p>
+<blockquote>
+<p>拓展：链接的概念</p>
+</blockquote>
+<p>链接分为两种：硬链接和软链接</p>
+<p><strong>硬链接</strong>：A—B，假设b是a的硬链接，那么他们两个指向了同一个文件，允许一个文件拥有多个路径，用户可以通过这种机制建立链接到一些重要文件上，防止误删除</p>
+<p><strong>软链接</strong>：类似windows下的快捷方式，删除了源文件，快捷方式也访问不了</p>
+<p>创建链接 ln 命令</p>
+<p>touch 命令创建文件</p>
+<p>echo 输入字符串&gt;&gt;放入的文件中</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

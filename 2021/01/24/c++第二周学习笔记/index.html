@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>c++第二周学习笔记 - taozi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Const修饰结构体防止误操作
+例如：void 函数（const student *stu）
+
+可防止改动数据
+
+
+system（cls）清屏通讯录管理系统内存分区模型：
+代码区：存放函数体的二进制,"> 
+    <meta name="author" content="taozi"> 
+    <link rel="alternative" href="atom.xml" title="taozi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">taozi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">c++第二周学习笔记</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">c++第二周学习笔记</h1>
+        <div class="stuff">
+            <span>一月 24, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="Const修饰结构体防止误操作"><a href="#Const修饰结构体防止误操作" class="headerlink" title="Const修饰结构体防止误操作"></a>Const修饰结构体防止误操作</h3><ul>
+<li><p>例如：void 函数（const student *stu）</p>
+</li>
+<li><p>可防止改动数据</p>
+</li>
+</ul>
+<h3 id="system（cls）清屏"><a href="#system（cls）清屏" class="headerlink" title="system（cls）清屏"></a>system（cls）清屏</h3><h3 id="通讯录管理系统"><a href="#通讯录管理系统" class="headerlink" title="通讯录管理系统"></a>通讯录管理系统</h3><h3 id="内存分区模型："><a href="#内存分区模型：" class="headerlink" title="内存分区模型："></a>内存分区模型：</h3><ul>
+<li><p>代码区：存放函数体的二进制代码，有操作系统进行管理</p>
+</li>
+<li><p>全局区：存放全局变量和静态变量以及常量</p>
+</li>
+<li><p>栈区：由编译器自动分配释放，存放函数的参数值，局部变量等</p>
+</li>
+<li><p>堆区：有程序员分配和释放，若程序员不释放，程序结束时由操作系统回收</p>
+</li>
+<li><p>分区的意义：</p>
+<p>不同区域存放的数据，赋予不同的生命周期，给我们更大的灵活</p>
+</li>
+<li><p>代码区：存放cpu执行的机器指令</p>
+<p>代码区是共享的，共享的目的是对于频繁被执行的程序，只需一份代码即可</p>
+<p>代码区是只读的，使其只读的原因是防止程序意外的修改了他的指令</p>
+</li>
+<li><p>全局区：</p>
+<p>全局变量和静态变量存放在此</p>
+<p>全局变量还包含常量区，字符串常量和其他常量也存放在此</p>
+<p>该区的数据在程序结束后有系统释放</p>
+</li>
+<li><p>栈区：</p>
+<p>由编译器自动分配释放，存放函数的参数值，局部变量等</p>
+<p>注意事项：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</p>
+</li>
+<li><p>堆区：</p>
+<p>利用new关键字可以将数据开辟到堆区（new返回的是地址）</p>
+<p>如：在函数中int * p = new int (10)；return*p；</p>
+<p>​        在主函数中int*p=函数（）</p>
+<p>​        输出*p一直会是10</p>
+</li>
+</ul>
+<h3 id="释放："><a href="#释放：" class="headerlink" title="释放："></a>释放：</h3><p>​    用关键字 delete</p>
+<p>​    如delete p；</p>
+<h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><p>​    int * arr = new int[10];</p>
+<h3 id="释放数组"><a href="#释放数组" class="headerlink" title="释放数组"></a>释放数组</h3><p>​    delete[] arr；</p>
+<h3 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h3><ul>
+<li><p>作用：给变量起小名</p>
+</li>
+<li><p>语法：数据类型 &amp;别名=原名</p>
+</li>
+</ul>
+<p>​                    int &amp;b=a;</p>
+<ul>
+<li><p>注意事项：</p>
+<ul>
+<li><p>引用必须初始化：int &amp;b；//错误的</p>
+</li>
+<li><p>引用一旦初始化后就不可更改</p>
+</li>
+<li><p>引用传递：形参会修饰实参（在传时可代替指针）</p>
+</li>
+</ul>
+<p>如：int fun(int &amp;a)</p>
+</li>
+</ul>
+<h3 id="引用做函数的返回值："><a href="#引用做函数的返回值：" class="headerlink" title="引用做函数的返回值："></a>引用做函数的返回值：</h3><p>​    不要返回局部变量引用（若要返回引用则需用static修饰a）</p>
+<p>​    如果函数做左值那么必须返回引用如：test2（）=1000</p>
+<h3 id="引用的本质："><a href="#引用的本质：" class="headerlink" title="引用的本质："></a>引用的本质：</h3><ul>
+<li><p>本质：引用的本质在c++内部实现是一个指针常量</p>
+</li>
+<li><p>结论：用就完事了</p>
+</li>
+</ul>
+<h3 id="常量引用："><a href="#常量引用：" class="headerlink" title="常量引用："></a>常量引用：</h3><p>​    const int &amp; a防止误操作修改a的值</p>
+<h3 id="函数：函数可以有默认值"><a href="#函数：函数可以有默认值" class="headerlink" title="函数：函数可以有默认值"></a>函数：函数可以有默认值</h3><p>​    语法：返回值类型 函数名 （参数=默认值）{}</p>
+<p>​    注意：</p>
+<p>​    1. 如果某个位置参数有默认值，那么这个位置往后从左向右必须都有默认值</p>
+<p>​    2.如果函数声明有默认值函数实现就不能有默认值（要不实现有，要不声明有）</p>
+<h3 id="站位参数：用来站位调用函数时必须填补该位置"><a href="#站位参数：用来站位调用函数时必须填补该位置" class="headerlink" title="站位参数：用来站位调用函数时必须填补该位置"></a>站位参数：用来站位调用函数时必须填补该位置</h3><p>​    语法：返回值类型 函数名 （数据类型）{}</p>
+<h3 id="函数重载：满足条件"><a href="#函数重载：满足条件" class="headerlink" title="函数重载：满足条件"></a>函数重载：满足条件</h3><ol>
+<li><p>同一个作用域下</p>
+</li>
+<li><p>函数名相同</p>
+</li>
+<li><p>函数参数类型不同、或者个数不同、或者顺序不同</p>
+</li>
+<li><p>注意：函数的返回值不可以作为函数重载的条件</p>
+<p>引用作为重载条件</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

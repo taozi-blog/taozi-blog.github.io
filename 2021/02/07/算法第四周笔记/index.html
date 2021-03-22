@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>算法第四周笔记 - taozi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="统计方形（数据加强版）题目背景1997年普及组第一题
+题目描述有一个 n \times mn×m 方格的棋盘，求其方格包含多少正方形、长方形（不包含正方形）。
+输入格式一行，两个正整数 n,mn,m,"> 
+    <meta name="author" content="taozi"> 
+    <link rel="alternative" href="atom.xml" title="taozi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">taozi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">算法第四周笔记</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">算法第四周笔记</h1>
+        <div class="stuff">
+            <span>二月 07, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="统计方形（数据加强版）"><a href="#统计方形（数据加强版）" class="headerlink" title="统计方形（数据加强版）"></a>统计方形（数据加强版）</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>1997年普及组第一题</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有一个 n \times m<em>n</em>×<em>m</em> 方格的棋盘，求其方格包含多少正方形、长方形（不包含正方形）。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行，两个正整数 n,m<em>n</em>,<em>m</em>（n \leq 5000,m \leq 5000<em>n</em>≤5000,<em>m</em>≤5000）。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行，两个正整数，分别表示方格包含多少正方形、长方形（不包含正方形）。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int</span><br><span class="line">            n,m,i,j,s1&#x3D;0,s2&#x3D;0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(i&#x3D;1;i&lt;&#x3D;min(n,m);i++)</span><br><span class="line">        s1+&#x3D;(m-i+1)*(n-i+1);</span><br><span class="line">    s2&#x3D;(n+1)*(m+1)*n*m&#x2F;4;</span><br><span class="line">    cout&lt;&lt;s1&lt;&lt;&#39; &#39;&lt;&lt;s2-s1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="烤鸡–（枚举）"><a href="#烤鸡–（枚举）" class="headerlink" title="烤鸡–（枚举）"></a>烤鸡–（枚举）</h1><h2 id="题目背景-1"><a href="#题目背景-1" class="headerlink" title="题目背景"></a>题目背景</h2><p>猪猪hanke得到了一只鸡</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>猪猪Hanke特别喜欢吃烤鸡（本是同畜牲，相煎何太急！）Hanke吃鸡很特别，为什么特别呢？因为他有10种配料（芥末、孜然等），每种配料可以放1—3克，任意烤鸡的美味程度为所有配料质量之和</p>
+<p>现在，Hanke想要知道，如果给你一个美味程度，请输出这10种配料的所有搭配方案</p>
+<p>答案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">   int a[11], n, i, book &#x3D; 0, T[10000][11];</span><br><span class="line">   scanf_s(&quot;%d&quot;, &amp;n);</span><br><span class="line">   if (n &lt; 10 || n&gt;30) &#123;   &#x2F;&#x2F;10以下和30以上的不可能</span><br><span class="line">      printf(&quot;0\n&quot;);</span><br><span class="line">      system(&quot;pause&quot;);  </span><br><span class="line">      return 0;</span><br><span class="line">   &#125;</span><br><span class="line">   if (n % 10 &#x3D;&#x3D; 0) &#123;</span><br><span class="line">      i &#x3D; n &#x2F; 10;</span><br><span class="line">      if (i !&#x3D; 2) &#123;      &#x2F;&#x2F;是10的整数倍但不是20的情况只有一种情况</span><br><span class="line">         printf(&quot;1\n&quot;);</span><br><span class="line">         printf(&quot;%d %d %d %d %d %d %d %d %d %d\n&quot;, i, i, i, i, i, i, i, i, i, i);</span><br><span class="line">         system(&quot;pause&quot;);</span><br><span class="line">         return 0;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#x2F;&#x2F;枚举开始：</span><br><span class="line">   for (a[1] &#x3D; 1; a[1] &lt;&#x3D; 3; a[1]++) &#123;     </span><br><span class="line">      for (a[2] &#x3D; 1; a[2] &lt;&#x3D; 3; a[2]++) &#123;</span><br><span class="line">         for (a[3] &#x3D; 1; a[3] &lt;&#x3D; 3; a[3]++) &#123;</span><br><span class="line">            for (a[4] &#x3D; 1; a[4] &lt;&#x3D; 3; a[4]++) &#123;</span><br><span class="line">               for (a[5] &#x3D; 1; a[5] &lt;&#x3D; 3; a[5]++) &#123;</span><br><span class="line">                  for (a[6] &#x3D; 1; a[6] &lt;&#x3D; 3; a[6]++) &#123;</span><br><span class="line">                     for (a[7] &#x3D; 1; a[7] &lt;&#x3D; 3; a[7]++) &#123;</span><br><span class="line">                        for (a[8] &#x3D; 1; a[8] &lt;&#x3D; 3; a[8]++) &#123;</span><br><span class="line">                           for (a[9] &#x3D; 1; a[9] &lt;&#x3D; 3; a[9]++) &#123;</span><br><span class="line">                              for (a[10] &#x3D; 1; a[10] &lt;&#x3D; 3; a[10]++) &#123;</span><br><span class="line">                                 if (a[1] + a[2] + a[3] + a[4] + a[5] + a[6] + a[7] + a[8] + a[9] + a[10] &#x3D;&#x3D; n) &#123;</span><br><span class="line">                                    book++;</span><br><span class="line">                                    T[book][1] &#x3D; a[1]; T[book][2] &#x3D; a[2]; T[book][3] &#x3D; a[3]; T[book][4] &#x3D; a[4]; T[book][5] &#x3D; a[5];</span><br><span class="line">                                    T[book][6] &#x3D; a[6]; T[book][7] &#x3D; a[7]; T[book][8] &#x3D; a[8]; T[book][9] &#x3D; a[9]; T[book][10] &#x3D; a[10];</span><br><span class="line">                                 &#125;</span><br><span class="line">                              &#125;</span><br><span class="line">                           &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                     &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   printf(&quot;%d\n&quot;, book);</span><br><span class="line">   for (i &#x3D; 1; i &lt;&#x3D; book; i++)</span><br><span class="line">      printf(&quot;%d %d %d %d %d %d %d %d %d %d\n&quot;, T[i][1], T[i][2], T[i][3], T[i][4], T[i][5], T[i][6], T[i][7], T[i][8], T[i][9], T[i][10]);</span><br><span class="line">   system(&quot;pause&quot;);</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="三连击（升级版）"><a href="#三连击（升级版）" class="headerlink" title="三连击（升级版）"></a>三连击（升级版）</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>将 1, 2,\ldots, 91,2,…,9 共 99 个数分成三组，分别组成三个三位数，且使这三个三位数的比例是 A:B:C<em>A</em>:<em>B</em>:<em>C</em>，试求出所有满足条件的三个三位数，若无解，输出 <code>No!!!</code>。</p>
+<p>//感谢黄小U饮品完善题意</p>
+<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>三个数，A,B,C<em>A</em>,<em>B</em>,<em>C</em>。</p>
+<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>若干行，每行 33 个数字。按照每行第一个数字升序排列。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[10], b[10], c[10], n1[999], n2[999], n3[999], s[10], i, j, k, f, t, r;   &#x2F;&#x2F;创建三个数组，用来存放1-9</span><br><span class="line">    t &#x3D; 1;</span><br><span class="line">    for (i&#x3D;1; i&lt;&#x3D;10; i++)      &#x2F;&#x2F;为三个数组赋值1-9</span><br><span class="line">    &#123;</span><br><span class="line">        a[i] &#x3D; i;</span><br><span class="line">        b[i] &#x3D; i;</span><br><span class="line">        c[i] &#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;### 列出符合“在1-9选三个数组成各位都不同”的第一个三位数 ###</span><br><span class="line"></span><br><span class="line">    for (i&#x3D;1; i&lt;4; i++)    &#x2F;&#x2F;第一层循环控制第一位数（百位）,并且剔除掉超过400的数</span><br><span class="line">    &#123;</span><br><span class="line">        for (j&#x3D;1; j&lt;10; j++)    &#x2F;&#x2F;二层循环控制第二位（十位）</span><br><span class="line">        &#123;</span><br><span class="line">            if (j!&#x3D;i)   &#x2F;&#x2F;保证第二位中不含第一位的数字（剔除十位中的百位数字）</span><br><span class="line">            &#123;</span><br><span class="line">                for (k&#x3D;1; k&lt;10; k++)    &#x2F;&#x2F;三层循环控制第一位（个位）</span><br><span class="line">                &#123;</span><br><span class="line">                    if (k!&#x3D;i &amp;&amp; k!&#x3D;j)   &#x2F;&#x2F;保证不含第一、二位中的数（剔除个位中百、十位中数字）</span><br><span class="line">                    &#123;</span><br><span class="line">                        n1[t] &#x3D; a[i]*100 + b[j]*10 +c[k];  &#x2F;&#x2F;将三位不同数字组合成第一个三位数</span><br><span class="line">                        n2[t] &#x3D; n1[t] * 2;      &#x2F;&#x2F;第二个三位数</span><br><span class="line">                        n3[t] &#x3D; n1[t] * 3;      &#x2F;&#x2F;第三个三位数</span><br><span class="line">                        t++;        &#x2F;&#x2F;确定符合条件的第一个三位数的个数，用于下面控制循环</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;### 循环判断三个三位数所含数字在1-9中且各不相同 ##</span><br><span class="line">    for (f&#x3D;1; f&lt;t; f++)     &#x2F;&#x2F;一层循环，循环遍历上面求出的在数组n*[]中的元素</span><br><span class="line">    &#123;</span><br><span class="line">        if (n1[f]&gt;191 &amp;&amp; n1[f]&lt;334)     &#x2F;&#x2F;确定所求第一位三位数在191-334之间，其余不符合条件</span><br><span class="line">        &#123;                               &#x2F;&#x2F;把三个三位数中全部9个数存放在数组s[]中</span><br><span class="line">            s[0] &#x3D; n1[f] &#x2F; 100;</span><br><span class="line">            s[1] &#x3D; (n1[f] % 100) &#x2F; 10;</span><br><span class="line">            s[2] &#x3D; n1[f] % 10;</span><br><span class="line">            s[3] &#x3D; n2[f] &#x2F; 100;</span><br><span class="line">            s[4] &#x3D; (n2[f] % 100) &#x2F; 10;</span><br><span class="line">            s[5] &#x3D; n2[f] % 10;</span><br><span class="line">            s[6] &#x3D; n3[f] &#x2F; 100;</span><br><span class="line">            s[7] &#x3D; (n3[f] % 100) &#x2F; 10;</span><br><span class="line">            s[8] &#x3D; n3[f] % 10;</span><br><span class="line">            r &#x3D; 0;      &#x2F;&#x2F;r赋值0（清零）</span><br><span class="line">            for (i&#x3D;0; i&lt;8; i++)     &#x2F;&#x2F;确保三个三位数中不含相同数字且不含数字0</span><br><span class="line">            &#123;</span><br><span class="line">                for (j&#x3D;i+1; j&lt;9; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    if (s[i]&#x3D;&#x3D;s[j] || s[i]&#x3D;&#x3D;0 || s[j]&#x3D;&#x3D;0)   &#x2F;&#x2F;如果有相同数字或有数字0则令r&#x3D;1并跳转</span><br><span class="line">                    &#123;</span><br><span class="line">                        r &#x3D; 1;</span><br><span class="line">                        goto A;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            A:</span><br><span class="line">            if (r &#x3D;&#x3D; 0)     &#x2F;&#x2F;如果各位数字均不同并且不含有数字0，则输出</span><br><span class="line">            &#123;</span><br><span class="line">                printf(&quot;%d %d %d\n&quot;, n1[f], n2[f], n3[f]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="火星人"><a href="#火星人" class="headerlink" title="火星人"></a>火星人</h1><h2 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h2><p>人类终于登上了火星的土地并且见到了神秘的火星人。人类和火星人都无法理解对方的语言，但是我们的科学家发明了一种用数字交流的方法。这种交流方法是这样的，首先，火星人把一个非常大的数字告诉人类科学家，科学家破解这个数字的含义后，再把一个很小的数字加到这个大数上面，把结果告诉火星人，作为人类的回答。</p>
+<p>火星人用一种非常简单的方式来表示数字――掰手指。火星人只有一只手，但这只手上有成千上万的手指，这些手指排成一列，分别编号为1,2,3…1,2,3…。火星人的任意两根手指都能随意交换位置，他们就是通过这方法计数的。</p>
+<p>一个火星人用一个人类的手演示了如何用手指计数。如果把五根手指――拇指、食指、中指、无名指和小指分别编号为1,2,3,41,2,3,4和55，当它们按正常顺序排列时，形成了55位数1234512345，当你交换无名指和小指的位置时，会形成55位数1235412354，当你把五个手指的顺序完全颠倒时，会形成5432154321，在所有能够形成的120120个55位数中，1234512345最小，它表示11；1235412354第二小，它表示22；5432154321最大，它表示120120。下表展示了只有33根手指时能够形成的66个33位数和它们代表的数字：</p>
+<p>三进制数</p>
+<p>123123<br>132132<br>213213<br>231231<br>312312 321321</p>
+<p>代表的数字</p>
+<p>11<br>22<br>33<br>44<br>55<br>66</p>
+<p>现在你有幸成为了第一个和火星人交流的地球人。一个火星人会让你看他的手指，科学家会告诉你要加上去的很小的数。你的任务是，把火星人用手指表示的数与科学家告诉你的数相加，并根据相加的结果改变火星人手指的排列顺序。输入数据保证这个结果不会超出火星人手指能表示的范围。</p>
+<h2 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h2><p>共三行。<br>第一行一个正整数N<em>N</em>，表示火星人手指的数目（1 \le N \le 100001≤<em>N</em>≤10000）。<br>第二行是一个正整数M<em>M</em>，表示要加上去的小整数（1 \le M \le 1001≤<em>M</em>≤100）。<br>下一行是11到N<em>N</em>这N<em>N</em>个整数的一个排列，用空格隔开，表示火星人手指的排列顺序。</p>
+<h2 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h2><p>N<em>N</em>个整数，表示改变后的火星人手指的排列顺序。每两个相邻的数中间用一个空格分开，不能有多余的空格。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int n, m, a[10005];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j, k, t;</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);</span><br><span class="line">    for (int i&#x3D;1; i&lt;&#x3D;n; i++)</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;a[i]);</span><br><span class="line">    for (i&#x3D;1; i&lt;&#x3D;m; i++)&#123;</span><br><span class="line">        for (j&#x3D;n-1; j&gt;&#x3D;1; j--)</span><br><span class="line">            if (a[j]&lt;a[j+1])</span><br><span class="line">                break;</span><br><span class="line">        for (k&#x3D;n; k&gt;&#x3D;1; k--)</span><br><span class="line">            if (a[k]&gt;a[j])</span><br><span class="line">                break;</span><br><span class="line">        t&#x3D;a[j];</span><br><span class="line">        a[j]&#x3D;a[k];</span><br><span class="line">        a[k]&#x3D;t;</span><br><span class="line">        sort(a+j+1, a+n+1);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;, a[1]);</span><br><span class="line">    for (i&#x3D;2; i&lt;&#x3D;n; i++)</span><br><span class="line">        printf(&quot; %d&quot;, a[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

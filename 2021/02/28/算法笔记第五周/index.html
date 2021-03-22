@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>算法笔记第五周 - taozi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="R7-5 计算职工工资给定N个职员的信息，包括姓名、基本工资、浮动工资和支出，要求编写程序顺序输出每位职员的姓名和实发工资（实发工资=基本工资+浮动工资-支出）。
+解：
+12345678910111,"> 
+    <meta name="author" content="taozi"> 
+    <link rel="alternative" href="atom.xml" title="taozi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">taozi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">算法笔记第五周</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">算法笔记第五周</h1>
+        <div class="stuff">
+            <span>二月 28, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="R7-5-计算职工工资"><a href="#R7-5-计算职工工资" class="headerlink" title="R7-5 计算职工工资"></a>R7-5 计算职工工资</h3><p>给定N个职员的信息，包括姓名、基本工资、浮动工资和支出，要求编写程序顺序输出每位职员的姓名和实发工资（实发工资=基本工资+浮动工资-支出）。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#define N 1000</span><br><span class="line">struct yuan</span><br><span class="line">&#123;</span><br><span class="line">    char name[11];</span><br><span class="line">    double z1;</span><br><span class="line">    double z2;</span><br><span class="line">    double z3;</span><br><span class="line">    double sum;</span><br><span class="line">&#125;ren[N];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,i;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%s %lf %lf %lf&quot;,ren[i].name,&amp;ren[i].z1,&amp;ren[i].z2,&amp;ren[i].z3);</span><br><span class="line">        ren[i].sum&#x3D;ren[i].z1+ren[i].z2-ren[i].z3;</span><br><span class="line">    &#125;</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%s %.2lf\n&quot;,ren[i].name,ren[i].sum);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="通讯录排序"><a href="#通讯录排序" class="headerlink" title="通讯录排序"></a><strong>通讯录排序</strong></h3><p>输入n个朋友的信息，包括姓名、生日、电话号码，本题要求编写程序，按照年龄从大到小的顺序依次输出通讯录。题目保证所有人的生日均不相同。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">    char name[10];</span><br><span class="line">    long int birth;</span><br><span class="line">    char phone[17];</span><br><span class="line">&#125;pInfo;</span><br><span class="line"></span><br><span class="line">int pInfoSort(pInfo *data, int n)</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    pInfo temp;</span><br><span class="line">    for (i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (j &#x3D; i + 1; j &lt; n; j++) &#123;</span><br><span class="line">            if (data[i].birth &gt; data[j].birth) &#123;</span><br><span class="line">                temp &#x3D; data[i];</span><br><span class="line">                data[i] &#x3D; data[j];</span><br><span class="line">                data[j] &#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">        printf(&quot;%s &quot;, data[i].name);</span><br><span class="line">        printf(&quot;%ld &quot;, data[i].birth);</span><br><span class="line">        printf(&quot;%s\n&quot;, data[i].phone);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    pInfo *data;</span><br><span class="line">    int n, i;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    data &#x3D; (pInfo*)malloc(sizeof(pInfo) * n);</span><br><span class="line">    for (i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">        scanf(&quot;%s&quot;, data[i].name);</span><br><span class="line">        scanf(&quot;%ld&quot;, &amp;data[i].birth);</span><br><span class="line">        scanf(&quot;%s&quot;, data[i].phone);</span><br><span class="line">    &#125;</span><br><span class="line">    pInfoSort(data, n);</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="查找书籍"><a href="#查找书籍" class="headerlink" title="查找书籍"></a>查找书籍</h3><p>给定n本书的名称和定价，本题要求编写程序，查找并输出其中定价最高和最低的书的名称和定价。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">struct book</span><br><span class="line">&#123;</span><br><span class="line">    char name[31];</span><br><span class="line">    double price;</span><br><span class="line">&#125;;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,i,max&#x3D;0,min&#x3D;0;</span><br><span class="line">    double temp;</span><br><span class="line">    struct book m[10];</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    getchar();</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        gets(m[i].name);</span><br><span class="line">        scanf(&quot;%lf&quot;,&amp;m[i].price);</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    for(i&#x3D;1,temp&#x3D;m[0].price;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(m[i].price&gt;temp)</span><br><span class="line">        &#123;</span><br><span class="line">            max&#x3D;i;</span><br><span class="line">            temp&#x3D;m[i].price;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(i&#x3D;1,temp&#x3D;m[0].price;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(m[i].price&lt;temp)</span><br><span class="line">        &#123;</span><br><span class="line">            min&#x3D;i;</span><br><span class="line">            temp&#x3D;m[i].price;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%.2lf, %s\n&quot;,m[max].price,m[max].name);</span><br><span class="line">    printf(&quot;%.2lf, %s&quot;,m[min].price,m[min].name);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="学生信息输入输出-10-分"><a href="#学生信息输入输出-10-分" class="headerlink" title="学生信息输入输出 (10 分)"></a>学生信息输入输出 (10 分)</h3><p>输入若干个学生的信息（学号、姓名、成绩），当输入学号为0时结束，用单向链表组织这些学生信息后，再按顺序输出。</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;malloc.h&gt;</span><br><span class="line"></span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">    char name[10];</span><br><span class="line">    int num,score;</span><br><span class="line">    struct node *next;</span><br><span class="line">&#125;;</span><br><span class="line">struct node *create()</span><br><span class="line">&#123;</span><br><span class="line">    struct node *Head,*p,*tail;</span><br><span class="line">    int date;</span><br><span class="line">    Head &#x3D; (struct node *)malloc(sizeof(struct node));</span><br><span class="line">    Head-&gt;next &#x3D; NULL;</span><br><span class="line">    tail &#x3D; Head;</span><br><span class="line">    p &#x3D; (struct node *)malloc(sizeof(struct node));</span><br><span class="line">    p-&gt;next &#x3D; NULL;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;date) !&#x3D; EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        if(date &#x3D;&#x3D; 0) break;</span><br><span class="line">        p-&gt;num &#x3D; date;</span><br><span class="line">        scanf(&quot;%s %d&quot;,p-&gt;name,&amp;p-&gt;score);</span><br><span class="line">        tail-&gt;next &#x3D; p;</span><br><span class="line">        tail &#x3D; p;</span><br><span class="line">        p &#x3D; (struct node *)malloc(sizeof(struct node));</span><br><span class="line">        p-&gt;next &#x3D; NULL;</span><br><span class="line">    &#125;</span><br><span class="line">    return Head;</span><br><span class="line">&#125;</span><br><span class="line">void print(struct node *Head)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    struct node *p;</span><br><span class="line">    p &#x3D; Head-&gt;next;</span><br><span class="line">    while(p !&#x3D; NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d %s %d\n&quot;,p-&gt;num,p-&gt;name,p-&gt;score);</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    struct node *head;</span><br><span class="line">    head &#x3D; create();</span><br><span class="line">    print(head);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="成绩大于等于某值的学生信息输出-10-分"><a href="#成绩大于等于某值的学生信息输出-10-分" class="headerlink" title="成绩大于等于某值的学生信息输出 (10 分)"></a>成绩大于等于某值的学生信息输出 (10 分)</h3><p>输入若干个学生信息（包括学号、姓名和成绩），输入学号为0时输入结束，建立一个单向链表，再输入一个成绩值，将成绩大于等于该值的学生信息输出。</p>
+<p>提示：</p>
+<p>定义函数struct stud_node *Creat_Stu_Doc()完成创建链表</p>
+<p>定义函数struct stud_node *DeleteDoc(struct stud_node *head,int min_score)将分数低于min_score的结点删除</p>
+<p>定义函数void Ptrint_Stu_Doc(struct stud_node *head)打印链表</p>
+<p>输入输出示例：括号内为说明，无需输入输出</p>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">struct stud_node&#123;</span><br><span class="line"></span><br><span class="line">    int num;</span><br><span class="line"></span><br><span class="line">    char name[20];</span><br><span class="line"></span><br><span class="line">    int score;</span><br><span class="line"></span><br><span class="line">    struct stud_node *next;      &#x2F;*定义结构类型变量 stud_node为全局bai变量*&#x2F;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct stud_node *Creat_Stu_Doc();</span><br><span class="line"></span><br><span class="line">struct stud_node *DeleteDoc(struct stud_node *head,int min_score);</span><br><span class="line"></span><br><span class="line">void Ptrint_Stu_Doc(struct stud_node *head);</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    struct stud_node *head;</span><br><span class="line"></span><br><span class="line">    int min_score;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    head&#x3D;Creat_Stu_Doc();</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d&quot;,&amp;min_score);</span><br><span class="line"></span><br><span class="line">    head&#x3D;DeleteDoc(head,min_score);</span><br><span class="line"></span><br><span class="line">    Ptrint_Stu_Doc(head);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct stud_node *Creat_Stu_Doc()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    struct stud_node *head,*tail, *p;</span><br><span class="line"></span><br><span class="line">    int num, score;</span><br><span class="line"></span><br><span class="line">    char name[20];</span><br><span class="line"></span><br><span class="line">    int size &#x3D; sizeof(struct stud_node);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    head&#x3D;tail&#x3D;NULL;</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d&quot;,&amp;num);</span><br><span class="line"></span><br><span class="line">    while(num !&#x3D; 0)&#123;</span><br><span class="line"></span><br><span class="line">        scanf(&quot;%s%d&quot;,name,&amp;score);</span><br><span class="line"></span><br><span class="line">        p&#x3D;(struct stud_node*)malloc(size);</span><br><span class="line"></span><br><span class="line">        p-&gt;num&#x3D;num;</span><br><span class="line"></span><br><span class="line">        strcpy(p-&gt;name,name);</span><br><span class="line"></span><br><span class="line">        p-&gt;score&#x3D;score;</span><br><span class="line"></span><br><span class="line">        p-&gt;next&#x3D;NULL;</span><br><span class="line"></span><br><span class="line">        if(head&#x3D;&#x3D;NULL)</span><br><span class="line"></span><br><span class="line">            head&#x3D;p;</span><br><span class="line"></span><br><span class="line">        else</span><br><span class="line"></span><br><span class="line">            tail-&gt;next&#x3D;p;</span><br><span class="line"></span><br><span class="line">        tail&#x3D;p;</span><br><span class="line"></span><br><span class="line">        scanf(&quot;%d&quot;,&amp;num);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return head;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct stud_node *DeleteDoc(struct stud_node *head,int min_score)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    struct stud_node*ptr1,*ptr2;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    while(head!&#x3D;NULL&amp;&amp;head-&gt;score&lt;min_score)&#123;</span><br><span class="line"></span><br><span class="line">        ptr2&#x3D;head;</span><br><span class="line"></span><br><span class="line">        head&#x3D;head-&gt;next;</span><br><span class="line"></span><br><span class="line">        free(ptr2);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(head&#x3D;&#x3D;NULL)</span><br><span class="line"></span><br><span class="line">        return NULL;</span><br><span class="line"></span><br><span class="line">    ptr1&#x3D;head;</span><br><span class="line"></span><br><span class="line">    ptr2&#x3D;head-&gt;next;</span><br><span class="line"></span><br><span class="line">    while(ptr2!&#x3D;NULL)&#123;</span><br><span class="line"></span><br><span class="line">        if(ptr2-&gt;score&lt;min_score)&#123;</span><br><span class="line"></span><br><span class="line">            ptr1-&gt;next&#x3D;ptr2-&gt;next;</span><br><span class="line"></span><br><span class="line">            free(ptr2);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        else</span><br><span class="line"></span><br><span class="line">            ptr1&#x3D;ptr2;</span><br><span class="line"></span><br><span class="line">        ptr2&#x3D;ptr1-&gt;next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return head;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Ptrint_Stu_Doc(struct stud_node *head)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    struct stud_node*ptr;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    if(head&#x3D;&#x3D;NULL)&#123;</span><br><span class="line"></span><br><span class="line">        printf(&quot;\nNo Records\n&quot;);</span><br><span class="line"></span><br><span class="line">        return;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(ptr&#x3D;head; ptr; ptr&#x3D;ptr-&gt;next)</span><br><span class="line"></span><br><span class="line">        printf(&quot;%d %s %d\n&quot;, ptr-&gt;num,ptr-&gt;name,ptr-&gt;score);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="R6-1-显示汉字点阵图形-标准版-15-分"><a href="#R6-1-显示汉字点阵图形-标准版-15-分" class="headerlink" title="R6-1 *显示汉字点阵图形(标准版) (15 分)"></a>R6-1 *显示汉字点阵图形(标准版) (15 分)</h3><p>每个汉字的图形都由 16×16 的点阵组成，如汉字“福”的点阵图形如下：</p>
+<p><img src="https://images.ptausercontent.com/2b55bfd7-9611-4775-b149-1d4f9e39c480.jpg" alt="题图.jpg"></p>
+<p>每个像素用 1 个二进制位来表示：1 表示像素是亮的，0 表示像素是不亮的。每个汉字由 16×16 = 256 个二进制位，即 32 个字节组成。</p>
+<p>HZK16.DAT 是汉字点阵图形文件，其中包括 GB2312-80 的全部汉字图形，按汉字的区位码顺序存储。</p>
+<p>请点击链接 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1sbn7SDwZJormPteZiObbbg">HZK16.DAT</a> 下载该文件。</p>
+<p>请编写函数，显示汉字的图形。</p>
+<h4 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示点阵汉字图形</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShowImage</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> high, <span class="keyword">unsigned</span> <span class="keyword">char</span> low, FILE *f)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>说明：参数 <code>high</code> 和 <code>low</code> 分别为汉字内码的高字节和低字节，<code>f</code> 是指示汉字图形库文件的指针。</p>
+<p>该函数用“■”表示汉字点阵中点亮的像素，用“□”表示不亮的像素。</p>
+<h4 id="裁判程序"><a href="#裁判程序" class="headerlink" title="裁判程序"></a>裁判程序</h4><p>下面的程序输入汉字，输出该汉字的点阵图形。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示点阵汉字图形</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShowImage</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> high, <span class="keyword">unsigned</span> <span class="keyword">char</span> low, FILE *f)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> high, low;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot; %c%c&quot;</span>, &amp;high, &amp;low);</span><br><span class="line">    FILE *f = fopen(<span class="string">&quot;HZK16.DAT&quot;</span>, <span class="string">&quot;rb&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (f)</span><br><span class="line">    &#123;</span><br><span class="line">        ShowImage(high, low, f);</span><br><span class="line">        fclose(f);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 你提交的代码将被嵌在这里 */</span></span><br></pre></td></tr></table></figure>
+<p>解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void ShowImage(unsigned char high, unsigned char low, FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">    int i,j;</span><br><span class="line">    unsigned char buffer[32];</span><br><span class="line">    long int offset;</span><br><span class="line">    offset &#x3D; ((high - 0xa1) * 94 + low - 0xa1) * 32;</span><br><span class="line">    fseek(f,offset,0);</span><br><span class="line">    for (i &#x3D; 0; i &lt; 32; ++i) &#123;</span><br><span class="line">        buffer[i] &#x3D; fgetc(f);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (i &#x3D; 0; i &lt; 32; ++i) &#123;</span><br><span class="line">        for (j &#x3D; 0; j &lt; 8; ++j) &#123;</span><br><span class="line">            if (buffer[i] &amp; 0x80) &#123;</span><br><span class="line">                printf(&quot;■&quot;);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                printf(&quot;□&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            buffer[i] &lt;&lt;&#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if (i % 2) &#123;</span><br><span class="line">            printf(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

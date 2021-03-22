@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>cpp第三周 - taozi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="构造函数调用规则
+创建一个类，c++编译器会给每个小类都添加至少三个函数：
+
+
+默认构造    （空实现）
+析构函数    （空实现）
+拷贝构造    （值拷贝）
+
+
+如果我们写了有参构造函数，编译,"> 
+    <meta name="author" content="taozi"> 
+    <link rel="alternative" href="atom.xml" title="taozi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">taozi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">cpp第三周</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">cpp第三周</h1>
+        <div class="stuff">
+            <span>一月 29, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="构造函数调用规则"><a href="#构造函数调用规则" class="headerlink" title="构造函数调用规则"></a>构造函数调用规则</h3><ol>
+<li>创建一个类，c++编译器会给每个小类都添加至少三个函数：</li>
+</ol>
+<ul>
+<li>默认构造    （空实现）</li>
+<li>析构函数    （空实现）</li>
+<li>拷贝构造    （值拷贝）</li>
+</ul>
+<ol start="2">
+<li>如果我们写了有参构造函数，编译器就不会再提供默认构造，依然提供拷贝构造。如果我们写了拷贝构造函数那么编译器不再提供其他构造函数</li>
+</ol>
+<h3 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h3><ul>
+<li>潜拷贝：简单的赋值拷贝</li>
+<li>深拷贝：在堆区重新申请空间，进行拷贝操作</li>
+</ul>
+<p>总结：如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止潜拷贝带来的问题</p>
+<h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><p><strong>作用：</strong></p>
+<p>c++提供了初始化列表语法，用来初始化属性</p>
+<p><strong>语法：构造函数(): 属性1(值1),属性2(值2)…{}</strong></p>
+<h3 id="类对象作为类成员"><a href="#类对象作为类成员" class="headerlink" title="类对象作为类成员"></a>类对象作为类成员</h3><p>c++类中的成员可以是另一个类的对象，我们称该成员为对象成员</p>
+<p><strong>例如：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;&#125;;</span><br><span class="line">class B</span><br><span class="line">&#123;</span><br><span class="line">    A a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>B类中有对象A作为成员，A为对象成员</p>
+<p>当其他类对象作为本类成员，构造时先构造类对象，再构造自身。析构的顺序与构造相反</p>
+<h3 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h3><p>有两种访问方法：</p>
+<ol>
+<li><p>通过对象访问：</p>
+<p>person p；</p>
+<p>p.func();</p>
+</li>
+<li><p>通过类名访问:</p>
+<p>person::func;</p>
+</li>
+</ol>
+<h3 id="成员变量和成员函数分开存储"><a href="#成员变量和成员函数分开存储" class="headerlink" title="成员变量和成员函数分开存储"></a>成员变量和成员函数分开存储</h3><ul>
+<li><p>空对象占用内存空间为1</p>
+</li>
+<li><p>c++编译器会给每一个空对象分配一个字节空间，是为了区分空对象内存的位置</p>
+</li>
+<li><p>每个空对象也应该有一个独一无二的地址</p>
+</li>
+<li><p>非静态成员变量 属于类对象上</p>
+</li>
+<li><p>静态成员变量 不属于类对象上</p>
+</li>
+<li><p>非静态成员函数 不属于类对象上</p>
+</li>
+<li><p>静态成员函数 不属于类对象上</p>
+</li>
+<li><p>成员变量和成员函数分开存储</p>
+</li>
+</ul>
+<h3 id="this指针概念"><a href="#this指针概念" class="headerlink" title="this指针概念"></a>this指针概念</h3><ul>
+<li><p>this指针指向被调用的成员函数所属的对象</p>
+</li>
+<li><p>this指针隐含在每一个非静态成员函数内</p>
+</li>
+<li><p>不需定义直接使用</p>
+</li>
+</ul>
+<p><strong>this指针的用途</strong></p>
+<ul>
+<li>当形参和成员变量同名时，可用this指针来区分</li>
+<li>在类的非静态成员变量函数中返回对象本身，可使用return *this</li>
+</ul>
+<h3 id="空指针访问成员函数"><a href="#空指针访问成员函数" class="headerlink" title="空指针访问成员函数"></a>空指针访问成员函数</h3><p>c++中空指针也是可以调用成员函数的，但是也要注意有没有用到this指针</p>
+<p>如果用到this指针，需要加以判断代码的健壮性</p>
+<h3 id="const修饰成员函数"><a href="#const修饰成员函数" class="headerlink" title="const修饰成员函数"></a>const修饰成员函数</h3><p><strong>常函数：</strong></p>
+<ul>
+<li>成员函数后加const后我们称为祖国函数为常函数</li>
+<li>常函数内不可以修改成员属性</li>
+<li>成员属性声明时附加关键字mutable后，在常函数中依然可以修改</li>
+</ul>
+<p><strong>常对象：</strong></p>
+<ul>
+<li>声明对象前加const称该对象为常对象</li>
+<li>常对象只能调用常函数</li>
+</ul>
+<h3 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h3><p>关键字为：friend</p>
+<p>友元的三种实现</p>
+<ul>
+<li>全局函数做友元</li>
+</ul>
+<p>把函数声明写在类里并在前面加上关键字</p>
+<ul>
+<li>类做友元</li>
+</ul>
+<p>friend class 类名</p>
+<ul>
+<li>成员函数做友元</li>
+</ul>
+<p>friend void goodGay::visit()</p>
+<h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><p>概念：对已有运算符进行重新进行定义，赋予其另一种功能，以适应不同的数据类型</p>
+<h4 id="加号运算符重载"><a href="#加号运算符重载" class="headerlink" title="加号运算符重载"></a>加号运算符重载</h4><p>作用：实现两个自定义数据类型相加的运算</p>
+<ol>
+<li><p>成员函数重载+号：person operator+ (person &amp;p){}</p>
+</li>
+<li><p>全局函数重载+号：person operator+(person &amp;p1,person &amp;p2)</p>
+</li>
+</ol>
+<p>运算符重载也可以发送函数重载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;全局函数重载</span><br><span class="line">Person operator+(Person &amp;p1,Person &amp;p2)</span><br><span class="line">&#123;</span><br><span class="line">    Person temp;</span><br><span class="line">    temp.m_A&#x3D;p1.m_A+p2.m_A;</span><br><span class="line">    temp.m_B&#x3D;p1.m_B+p2.m_B;</span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="左移运算符重载"><a href="#左移运算符重载" class="headerlink" title="左移运算符重载"></a>左移运算符重载</h4><p>作用：可以输出自定义函数类型</p>
+<p>只能利用全局函数重载左移运算符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;左移运算符重载</span><br><span class="line">ostream &amp; operator&lt;&lt;(ostream &amp;cout ,Person &amp;p)&#x2F;&#x2F;本质 operator&lt;&lt;(cout ,p)</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;&quot;m_A&#x3D;&quot;&lt;&lt;p.m_A&lt;&lt;&quot; m_B&#x3D;&quot;&lt;&lt;p.m_B;</span><br><span class="line">    return cout;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="递增运算符重载"><a href="#递增运算符重载" class="headerlink" title="递增运算符重载"></a>递增运算符重载</h4><p>作用：通过重载递增运算符，实现自己的整型数据</p>
+<p><strong>返回引用是为了一直对一个数据进行操作</strong></p>
+<p>前置递增返回引用，后置递增返回值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;重载前置++运算符</span><br><span class="line">myinteger&amp; operator++()</span><br><span class="line">&#123;</span><br><span class="line">    m_num++;</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;重载后置++运算符</span><br><span class="line">myinteger&amp; operator++(int)</span><br><span class="line">&#123;</span><br><span class="line">    myinteger temp &#x3D;*this;</span><br><span class="line">    m_num++;</span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="赋值运算符重载"><a href="#赋值运算符重载" class="headerlink" title="赋值运算符重载"></a>赋值运算符重载</h4><p>c++编译器至少给一个类添加4个函数</p>
+<ol>
+<li><p>默认构造    （空实现）</p>
+</li>
+<li><p>析构函数    （空实现）</p>
+</li>
+<li><p>拷贝构造    对属性进行值拷贝</p>
+</li>
+<li><p>赋值运算符operator=，对属性进行值拷贝</p>
+</li>
+</ol>
+<p>如果类中有属性指向堆区，做赋值操作时也会出现深浅拷贝问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;重载赋值运算符</span><br><span class="line">Person&amp; operator&#x3D;(Person &amp;p)</span><br><span class="line">&#123;</span><br><span class="line">    if(m_age !&#x3D;NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        delete m_age;</span><br><span class="line">        m_age&#x3D;NULL;</span><br><span class="line">    &#125;</span><br><span class="line">    m_age&#x3D;new int (*p.m_age);</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="重载关系运算符"><a href="#重载关系运算符" class="headerlink" title="重载关系运算符"></a>重载关系运算符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;重载关系运算符</span><br><span class="line">bool operator&#x3D;&#x3D;(Person &amp;p)</span><br><span class="line">&#123;</span><br><span class="line">    if (this-&gt;m_name&#x3D;&#x3D;p_name&amp;&amp;-&gt;m_age&#x3D;&#x3D;p.m_age)</span><br><span class="line">    &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="函数调用运算符重载"><a href="#函数调用运算符重载" class="headerlink" title="函数调用运算符重载"></a>函数调用运算符重载</h4><ul>
+<li>函数调用运算符()也可以重载</li>
+<li>由于重载后使用的方式非常像函数的调用，因此称为仿函数</li>
+<li>仿函数没有固定写法，非常灵活</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>好处：减少重复代码</p>
+<p>语法：class 子类：继承方式 父类</p>
+<p>子类也称为派生类</p>
+<p>父类也称为基类</p>
+<h4 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h4><ul>
+<li>公共继承</li>
+<li>保护继承</li>
+<li>私有继承</li>
+</ul>
+<h4 id="继承中的对象模型"><a href="#继承中的对象模型" class="headerlink" title="继承中的对象模型"></a>继承中的对象模型</h4><p>父类中所有非静态成员属性都会被子类继承下去</p>
+<p>父类中私有成员属性是被编译器隐藏了，因此访问不到，但确实被继承下去了</p>
+<h4 id="继承中构造和析构顺序"><a href="#继承中构造和析构顺序" class="headerlink" title="继承中构造和析构顺序"></a>继承中构造和析构顺序</h4><p>子类继承父类后，当创建子类对象，也会调用父类的构造函数</p>
+<p>继承中的构造和析构顺序如下：</p>
+<p>​    先构造父类，再构造子类，析构的顺序与构造的顺序相反</p>
+<h4 id="继承中同名成员处理方式"><a href="#继承中同名成员处理方式" class="headerlink" title="继承中同名成员处理方式"></a>继承中同名成员处理方式</h4><ol>
+<li>子类对象可以直接访问到子类中同名成员</li>
+<li>子类对象加作用域可以直接访问到父类同名成员</li>
+<li>当子类与父类拥有同名成员函数，子类会隐藏父类中同名成员函数，加作用域可以访问到父类中同名函数</li>
+</ol>
+<h4 id="继承同名静态成员处理方式"><a href="#继承同名静态成员处理方式" class="headerlink" title="继承同名静态成员处理方式"></a>继承同名静态成员处理方式</h4><p>静态成员和非静态成员出现同名，处理方式一致</p>
+<ul>
+<li>访问子类同名成员 直接访问即可</li>
+<li>访问父类同名成员 需要加作用域</li>
+</ul>
+<h4 id="多继承语法"><a href="#多继承语法" class="headerlink" title="多继承语法"></a>多继承语法</h4><p>c++允许一个类继承多个类</p>
+<p>语法：class 子类：继承方式 父类1，继承方式 父类2.。。</p>
+<p>多继承可能会引发父类中有同名成员出现，需要加作用域区分</p>
+<p><strong>c++实际开发中不建议使用多继承</strong></p>
+<h4 id="菱形继承"><a href="#菱形继承" class="headerlink" title="菱形继承"></a>菱形继承</h4><p>概念：</p>
+<p>​    两个派生类继承同一个基类</p>
+<p>​    又有某个类同时继承两个派生类</p>
+<p>​    这种继承被称为菱形继承，或者钻石继承</p>
+<p>解决：在继承（public）之前加上关键字：virtual</p>
+<p>总结：</p>
+<ul>
+<li>菱形继承带来的主要问题是子类继承两份相同的数据，导致资源浪费以及毫无意义</li>
+<li>利用虚继承可以解决菱形继承问题</li>
+</ul>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><h3 id="多态的基本概念"><a href="#多态的基本概念" class="headerlink" title="多态的基本概念"></a>多态的基本概念</h3><p><strong>多态是c++面向对象三大特性之一</strong></p>
+<p>多态分两类</p>
+<ul>
+<li>静态多态：函数重载和运算符重载属于静态多态 复用函数名</li>
+<li>动态多态：派生类和虚函数实现运行时多态</li>
+</ul>
+<p>静态多态和动态多态区别：</p>
+<ul>
+<li>静态多态的函数地址早绑定-编译阶段确定函数地址</li>
+<li>动态多态的函数地址晚绑定-运行阶段确定函数地址</li>
+</ul>
+<p>动态多态满足条件</p>
+<ol>
+<li>有继承关系</li>
+<li>子类重写父类的虚函数</li>
+</ol>
+<p>动态多态使用</p>
+<ul>
+<li>父类的指针或引用 执行子类对象</li>
+</ul>
+<p>重写：函数返回值类型 函数名 参数列表 完全一致称为重写</p>
+<p>虚函数关键字：virtual</p>
+<p>多态优点：</p>
+<ul>
+<li>代码组织结构清晰</li>
+<li>可读性强</li>
+<li>利于前期和后期的扩展以及维护</li>
+</ul>
+<h4 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h4><p>在多态中，通常父类中虚函数的实现是毫无意义的，主要是调用子类重写的内容</p>
+<p>因此可以将虚函数改为纯虚函数</p>
+<p>纯虚函数语法：virtual 返回值类型 函数名 （参数列表）=0；</p>
+<p>当类中有了纯虚函数，这个类也称为<strong>抽象类</strong></p>
+<p><strong>抽象类特点</strong>：</p>
+<ul>
+<li>无法实例化对象</li>
+<li>子类必须重写抽象类中的纯虚函数，否则也属于抽象类</li>
+</ul>
+<h4 id="虚析构和纯虚析构"><a href="#虚析构和纯虚析构" class="headerlink" title="虚析构和纯虚析构"></a>虚析构和纯虚析构</h4><p>多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码</p>
+<p>解决方法：将父类中的析构函数改为虚析构或者纯虚析构</p>
+<p>虚析构和纯虚析构共性：</p>
+<ul>
+<li>可以解决父类指针释放子类对象</li>
+<li>都需要具体的函数实现</li>
+</ul>
+<p>虚析构和纯虚析构的区别：</p>
+<ul>
+<li>如果是纯虚析构，该类属于抽象类，无法实例化对象</li>
+</ul>
+<p>虚析构语法：</p>
+<p>virtual ~类名（）{}</p>
+<p>纯虚析构语法：</p>
+<p>virtual ~类名（）=0；</p>
+<p>类名：：~类名（）{}</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>程序运行时产生的数据都属于临时数据，程序一旦运行结束都会被释放</p>
+<p>通过<strong>文件可将数据持久化</strong></p>
+<p>c++中对文件操作需要包含头文件**<fstream>**</p>
+<p>文件类型分为两种：</p>
+<ol>
+<li><strong>文本文件</strong> -文件以文本的asc11码形式存储在计算机中</li>
+<li><strong>二进制文件</strong> -文件以文本的二进制形式存储在计算机中，用户一般不能直接读懂他们</li>
+</ol>
+<p>操作文件的三大类：</p>
+<ol>
+<li>ofstream: 写操作</li>
+<li>ifstream: 读操作</li>
+<li>fstream: 读写操作</li>
+</ol>
+<h4 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h4><p>步骤</p>
+<ol>
+<li><p>包含头文件</p>
+<p>#include<fstream></p>
+</li>
+<li><p>创建流对象</p>
+<p>ofstream efs;</p>
+</li>
+<li><p>打开文件</p>
+<p>ofs.open(“文件路径”，打开方式)；</p>
+</li>
+<li><p>写数据</p>
+<p>ofs&lt;&lt;”写入的数据”；</p>
+</li>
+<li><p>关闭文件</p>
+<p>ofs.close();</p>
+</li>
+</ol>
+<p>文件打开方式：</p>
+<p>ios::in                为读文件而打开文件</p>
+<p>ios::out            为写文件而打开文件</p>
+<p>ios::ate                初识位置：文件尾</p>
+<p>ios::app            追加文件写方式</p>
+<p>ios::trunc            如果文件存在先删除，再创建</p>
+<p>ios::binary        二进制方式</p>
+<p><strong>注意</strong>：文件打开方式可以配合使用，利用|操作符</p>
+<p><strong>例如</strong>：用二进制方式写文件ios::binary|ios::out</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void test01()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;1.包含头文件fstream</span><br><span class="line">    &#x2F;&#x2F;2.创建流对象</span><br><span class="line">    ofstream ofs;</span><br><span class="line">    &#x2F;&#x2F;3.指定打开方式</span><br><span class="line">    ofs.open(&quot;test.txt&quot;,ios::out);</span><br><span class="line">    &#x2F;&#x2F;4.写内容</span><br><span class="line">    ofs&lt;&lt;&quot;姓名：张三&quot;&lt;&lt;endl;</span><br><span class="line">    &#x2F;&#x2F;5.关闭文件</span><br><span class="line">    ofs.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p>读文件与写文件步骤类似，但是读取方式相对比较多</p>
+<p>读文件步骤：</p>
+<ol>
+<li>包含头文件</li>
+</ol>
+<p>#include<fstream></p>
+<ol start="2">
+<li>创建流对象</li>
+</ol>
+<p>ifstream ifs;</p>
+<ol start="3">
+<li>打开文件并判断文件是否打开成功</li>
+</ol>
+<p>ifs.open(“文件路径”,打开方式)；</p>
+<ol start="4">
+<li>读数据</li>
+</ol>
+<p>四种方式读取</p>
+<ol start="5">
+<li>关闭文件</li>
+</ol>
+<p>ifs.close();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void test01()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;1.包含头文件fstream</span><br><span class="line">    &#x2F;&#x2F;2.创建流对象</span><br><span class="line">    ifstream ifs;</span><br><span class="line">    &#x2F;&#x2F;3.打开文件 并判断是否打开成功</span><br><span class="line">    ifs.open(&quot;test.txt&quot;,ios::in);</span><br><span class="line">    if(!ifs.is_open())</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;&quot;文件打开失败&quot;&lt;&lt;endl;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;4.读数据</span><br><span class="line">    &#x2F;&#x2F;1</span><br><span class="line">    char buf[1024]&#x3D;&#123;0&#125;;</span><br><span class="line">    while (ifs&gt;&gt;buf)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;buf&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;2</span><br><span class="line">    char buf[1024]&#x3D;&#123;0&#125;;</span><br><span class="line">    while (ifs.getline(buf.sizeof(buf)))</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;buf&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;3</span><br><span class="line">    string buf;</span><br><span class="line">    while (getline(ifs,buf))</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;buf&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;4</span><br><span class="line">    char c;</span><br><span class="line">    while ((c&#x3D;ifs.get())!&#x3D;EOF)&#x2F;&#x2F;EOF end of file</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;c;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;5.关闭文件</span><br><span class="line">    ifs.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h3><p>以二进制的方式对文件进行读写操作</p>
+<p>打开方式要指定为ios::binary</p>
+<h4 id="写文件-1"><a href="#写文件-1" class="headerlink" title="写文件"></a>写文件</h4><p>二进制方式写文件主要利用流对象调用成员函数write</p>
+<p>函数原型：ostream&amp; write(const char*buffer,int len);</p>
+<p>参数解释：字符指针buffer指向内存中一段存储空间，len是读写的字节数</p>
+<h4 id="读文件-1"><a href="#读文件-1" class="headerlink" title="读文件"></a>读文件</h4><p>二进制方式读文件主要利用流对象调用read</p>
+<p>函数原型：istream&amp; read(chanr *buffer,int len);</p>
+<p>参数解释：字符指针buffer指向内存中一段存储空间，len是读写的字节数</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
